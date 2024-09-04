@@ -21,7 +21,7 @@ feat.내일배움 캠프
 - 설계
   - 동작 흐름도
 
-    <img src="read_me_img/lv1_flowchart.png" width="80%" height="80%">
+    <img src="read_me_img/lv1_flowchart.png" alt="lv1 흐름도" width="80%" height="80%">
   - 기능 분해
     
       | 메서드명               | 설명              | 예외                   |
