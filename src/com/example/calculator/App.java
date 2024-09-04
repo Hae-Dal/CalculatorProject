@@ -70,12 +70,12 @@ public class App {
         Calculator cal = new Calculator();
         System.out.println(cal.calc(2, 3, '+'));
         System.out.println(cal.getCalcResult());
-        cal.setCalcResult(new ArrayList<HashMap<String, String>>() {{
-                add( new HashMap<>() {{
-                    put("expr", "3+5");
-                    put("result", "8.0");
-                }});
-            }}
+        cal.setCalcResult(new ArrayList<>() {{
+                              add(new HashMap<>() {{
+                                  put("expr", "3+5");
+                                  put("result", "8.0");
+                              }});
+                          }}
         );
         System.out.println(cal.getCalcResult());
 
