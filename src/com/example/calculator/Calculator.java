@@ -1,66 +1,42 @@
 package com.example.calculator;
 
-import java.util.Scanner;
+import java.util.HashMap;
 
 public class Calculator {
-    public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        String flag = null;
+    // 연산 결과를 저장하는 컬렉션 타입 필드
+    private HashMap<Object, Double> calcResult = new HashMap<>();
 
-        do {
-            // 양의 정수 입력받기
-            System.out.print("첫 번째 수 : ");
-            int first = Integer.parseInt(sc.next());
-            if (first < 0) {
-                System.out.println("양의 정수 또는 0을 입력해주세요.");
-                continue;
+    public double calc(int first, int second, char op) {
+        HashMap<String, String> expr = new HashMap<>();
+        expr.put("first", String.valueOf(first));
+        expr.put("second", String.valueOf(second));
+        expr.put("op", String.valueOf(op));
+
+        switch (op) {
+            case '+' : {
+                calcResult.put(expr, (double) first + second);
+                return first + second;
             }
-
-            System.out.print("두 번째 수 : ");
-            int second = Integer.parseInt(sc.next());
-            if (second < 0) {
-                System.out.println("양의 정수 또는 0을 입력해주세요.");
-                continue;
+            case '-' : {
+                calcResult.put(expr, (double) first - second);
+                return first - second;
             }
-
-            // 사칙연산 기호 입력받기
-            System.out.print("연산 기호 : ");
-            char op = sc.next().charAt(0);
-
-            // 연산기호에 따라 연산 후 출력
-            switch (op) {
-                case '+' : {
-                    System.out.println(first + second);
-                    break;
-                }
-                case '-' : {
-                    System.out.println(first - second);
-                    break;
-                }
-                case '*' : {
-                    System.out.println(first * second);
-                    break;
-                }
-                case '/' : {
-                    if (second == 0) {
-                        System.out.println("0으로는 나눌 수 없습니다.");
-                    } else {
-                        System.out.println((double) first / second);
-                    }
-
-                    break;
-                }
-                default: {
-                    System.out.println("올바른 연산기호를 입력해주세요.");
+            case '*' : {
+                calcResult.put(expr, (double) first * second);
+                return first * second;
+            }
+            case '/' : {
+                if (second == 0) {
+                    throw new IllegalArgumentException("0으로는 나눌 수 없습니다.");
+                } else {
+                    calcResult.put(expr, (double) first / second);
+                    return (double) first / second;
                 }
             }
-
-            System.out.println("계산기를 종료하시려면 `exit`를 입력해주세요.");
-
-            flag = sc.next();
-        } while (!(flag != null && flag.equals("exit")));
+            default: {
+                throw new IllegalArgumentException("올바른 연산기호를 입력해주세요.");
+            }
+        }
     }
-
-
 }
