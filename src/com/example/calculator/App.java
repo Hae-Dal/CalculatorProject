@@ -1,8 +1,5 @@
 package com.example.calculator;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class App {
 
 
