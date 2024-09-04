@@ -1,66 +1,50 @@
 package com.example.calculator;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Calculator {
-    public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        String flag = null;
+    // 연산 결과를 저장하는 컬렉션 타입 필드
+    private ArrayList<HashMap<String, String>> calcResult = new ArrayList<>();
 
-        do {
-            // 양의 정수 입력받기
-            System.out.print("첫 번째 수 : ");
-            int first = Integer.parseInt(sc.next());
-            if (first < 0) {
-                System.out.println("양의 정수 또는 0을 입력해주세요.");
-                continue;
-            }
-
-            System.out.print("두 번째 수 : ");
-            int second = Integer.parseInt(sc.next());
-            if (second < 0) {
-                System.out.println("양의 정수 또는 0을 입력해주세요.");
-                continue;
-            }
-
-            // 사칙연산 기호 입력받기
-            System.out.print("연산 기호 : ");
-            char op = sc.next().charAt(0);
-
-            // 연산기호에 따라 연산 후 출력
-            switch (op) {
-                case '+' : {
-                    System.out.println(first + second);
-                    break;
-                }
-                case '-' : {
-                    System.out.println(first - second);
-                    break;
-                }
-                case '*' : {
-                    System.out.println(first * second);
-                    break;
-                }
-                case '/' : {
-                    if (second == 0) {
-                        System.out.println("0으로는 나눌 수 없습니다.");
-                    } else {
-                        System.out.println((double) first / second);
-                    }
-
-                    break;
-                }
-                default: {
-                    System.out.println("올바른 연산기호를 입력해주세요.");
-                }
-            }
-
-            System.out.println("계산기를 종료하시려면 `exit`를 입력해주세요.");
-
-            flag = sc.next();
-        } while (!(flag != null && flag.equals("exit")));
+    public ArrayList<HashMap<String, String>> getCalcResult() {
+        return calcResult;
     }
 
+    public void setCalcResult(ArrayList<HashMap<String, String>> calcResult) {
+        this.calcResult = calcResult;
+    }
 
+    public double calc(int first, int second, char op) {
+        HashMap<String, String> result = new HashMap<>();
+        result.put("expr", first + String.valueOf(op) + second);
+        calcResult.add(result);
+
+        switch (op) {
+            case '+' : {
+                result.put("result", String.valueOf((double)first + second));
+                return first + second;
+            }
+            case '-' : {
+                result.put("result", String.valueOf((double) first - second));
+                return first - second;
+            }
+            case '*' : {
+                result.put("result", String.valueOf((double) first * second));
+                return first * second;
+            }
+            case '/' : {
+                if (second == 0) {
+                    throw new IllegalArgumentException("0으로는 나눌 수 없습니다.");
+                } else {
+                    result.put("result", String.valueOf((double) first / second));
+                    return (double) first / second;
+                }
+            }
+            default: {
+                throw new IllegalArgumentException("올바른 연산기호를 입력해주세요.");
+            }
+        }
+    }
 }
