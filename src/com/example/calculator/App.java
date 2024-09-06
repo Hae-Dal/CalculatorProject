@@ -79,6 +79,13 @@ public class App {
         );
         System.out.println(cal.getCalcResult());
 
+        //============================================================================
+
+        ArithmeticCalculator<Integer> intCalc = new ArithmeticCalculator<>();
+        ArithmeticCalculator<Double> doubleCalc = new ArithmeticCalculator<>();
+
+        System.out.println("intCalc : " + intCalc.calculate(10, 20, OperatorType.Add));
+        System.out.println("doubleCalc : " + doubleCalc.calculate(10.0,20.0, OperatorType.Add));
     }
 
 
