@@ -1,7 +1,7 @@
 package com.example.calculator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 
 
 public class App {
@@ -68,16 +68,11 @@ public class App {
         */
 
         Calculator cal = new Calculator();
-        System.out.println(cal.calc(2, 3, '+'));
+        System.out.println(cal.calc(2, 3, OperatorType.Add));
         System.out.println(cal.getCalcResult());
-        cal.setCalcResult(new ArrayList<>() {{
-                              add(new HashMap<>() {{
-                                  put("expr", "3+5");
-                                  put("result", "8.0");
-                              }});
-                          }}
-        );
+        cal.setCalcResult(new ArrayList<>(Arrays.asList(1.0, 20.4, 40.7, 70.3)));
         System.out.println(cal.getCalcResult());
+        cal.deleteCalcResultFirst();
 
         //============================================================================
 
@@ -86,6 +81,9 @@ public class App {
 
         System.out.println("intCalc : " + intCalc.calculate(10, 20, OperatorType.Add));
         System.out.println("doubleCalc : " + doubleCalc.calculate(10.0,20.0, OperatorType.Add));
+
+        intCalc.getScannerResult();
+
     }
 
 
