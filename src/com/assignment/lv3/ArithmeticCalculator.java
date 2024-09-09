@@ -86,7 +86,7 @@ public class ArithmeticCalculator<N extends Number> implements Comparator<N> {
         AbstractOperator<N> operator = operators.stream()
                 .filter(op -> op.getType() == operatorType)
                 .findFirst()
-                .orElseThrow(() -> new InvalidOperatorException("Unknown operator: " + operatorType));
+                .orElseThrow(() -> new InvalidOperatorException("유효하지 않은 연산자: " + operatorType));
 
         return operator.operation(firstNum, secondNum);
     }
