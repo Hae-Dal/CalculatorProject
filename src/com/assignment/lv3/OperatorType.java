@@ -1,4 +1,4 @@
-package com.example.calculator;
+package com.assignment.lv3;
 
 public enum OperatorType {
     Add('+'),

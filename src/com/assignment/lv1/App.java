@@ -1,15 +1,14 @@
-package com.example.calculator;
+package com.assignment.lv1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 public class App {
 
-
-
     public static void main(String[] args) {
-        /* LV.1 개인과제
+        // LV.1 개인과제
         Scanner sc = new Scanner(System.in);
         String flag = null;
 
@@ -65,26 +64,5 @@ public class App {
 
             flag = sc.next();
         } while (!(flag != null && flag.equals("exit")));
-        */
-
-        Calculator cal = new Calculator();
-        System.out.println(cal.calc(2, 3, OperatorType.Add));
-        System.out.println(cal.getCalcResult());
-        cal.setCalcResult(new ArrayList<>(Arrays.asList(1.0, 20.4, 40.7, 70.3)));
-        System.out.println(cal.getCalcResult());
-        cal.deleteCalcResultFirst();
-
-        //============================================================================
-
-        ArithmeticCalculator<Integer> intCalc = new ArithmeticCalculator<>();
-        ArithmeticCalculator<Double> doubleCalc = new ArithmeticCalculator<>();
-
-        System.out.println("intCalc : " + intCalc.calculate(10, 20, OperatorType.Add));
-        System.out.println("doubleCalc : " + doubleCalc.calculate(10.0,20.0, OperatorType.Add));
-
-        intCalc.getScannerResult();
-
     }
-
-
 }
