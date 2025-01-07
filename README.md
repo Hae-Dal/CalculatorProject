@@ -83,16 +83,3 @@ feat.내일배움 캠프
       | 연산결과 저장     | 연산결과를 저장                         |                      |
       | 연산결과 삭제     | 저장된 연산 결과 중 가장 먼저 저장된 데이터 삭제     |                      |
       | 결과값 비교 및 출력 | 저장된 연산 결과 중 입력받은 값보다 큰 결과 값들을 출력 |                      |
-
-
-![docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-
-![aws](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-
-![spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-
-![jwt](https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink)
-
-![swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
-
-![git action](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
